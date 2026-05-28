@@ -53,19 +53,33 @@ function createControlPanel() {
 
 // ====================== DEMO FUNCTIONS ======================
 window.demoSubscribe = () => {
-  const names = ["SezFan123", "LuckyViewer", "StreamLover", "OhMySezFan"];
-  enterQueue(names[Math.floor(Math.random() * names.length)]);
+    window.dispatchEvent(new CustomEvent('onEventReceived', {
+    detail: {
+      listener: 'subscriber-latest',
+      event: {
+        name,
+        amount,
+        tier,
+        gifted: false,
+        bulkGifted: false,
+        isCommunityGift: false,
+        sender: "Crane Player"
+      }
+    }
+  }));
 };
 
 window.demoCheer = () => {
-  const names = ["BitKing", "CheerMaster", "HyperHype"];
-  enterQueue(names[Math.floor(Math.random() * names.length)]);
+  window.dispatchEvent(new CustomEvent('onEventReceived', {
+    detail: { listener: 'cheer-latest', event: { "Crane Player", 300, "" } }
+  }));
 };
 
 window.demoDonate = () => {
-  const names = ["BigDonor", "SupporterX", "GenerousGamer"];
-  enterQueue(names[Math.floor(Math.random() * names.length)]);
-};
+  window.dispatchEvent(new CustomEvent('onEventReceived', {
+      detail: { listener: 'tip-latest', event: { "Crane Player", 300, "" } }
+    }));
+}
 
 // ====================== STYLES FOR CONTROL PANEL ======================
 const panelStyle = document.createElement('style');
