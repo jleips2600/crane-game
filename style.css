@@ -135,9 +135,18 @@
   }
 }
 
-@keyframes moveBase { 
+@keyframes moveBase {
   0% {
-    transform: translateX(var(--craneStartPos)) translateY(0px);
+    left: var(--craneStartPos);
+  }
+  100% {
+    left: var(--craneTargetPos);
+  }
+}
+
+@keyframes moveBase2 { 
+  0% {
+    transform: translateX(var(--craneStartPos)) translateY(-900px);
   }
   100% {
     transform: translateX(var(--craneTargetPos)) translateY(0px);
