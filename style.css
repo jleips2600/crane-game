@@ -46,7 +46,7 @@
   text-align: center;
   align-items: center;
   justify-content: center; 
-  transform: scale(1);
+  transform: scale(.5);
   transform-origin: top left;
   overflow: hidden;
 }
