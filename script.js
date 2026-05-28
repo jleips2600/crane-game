@@ -183,35 +183,29 @@ function getItem() {
 //=========================
 
 
+//=========================
+// SET CRANE POSITION
+//=========================
 function setCranePosition() {
   if (randomizeCraneDirection) {
     let rng = getRandom(0, 1);
-    
-    if(rng === 0)
-    {
+    if (rng === 0) {
       craneDirection = 'right';
       craneStartPos = '1250px';
-    }
-    else
-    {
+    } else {
       craneDirection = 'left';
       craneStartPos = '-1250px';
     }
   } else {
-    if(craneDirection === 'left')
-    {
-      craneDirection = 'left';
-      craneStartPos = '-1250px';
-    }
-    else 
-    {
-      craneDirection = 'right';
-      craneStartPos = '1250px';
-    }
+    craneStartPos = (craneDirection === 'left') ? '-1250px' : '1250px';
   }
 
   craneContainerPos.style.setProperty("--craneStartPos", craneStartPos);
-  craneContainerPos.style.transform = `translateX(${craneStartPos}) translateY(-900px)`;
+  craneContainerPos.style.setProperty("--craneTargetPos", "0px"); // default
+
+  // Reset any previous animation
+  craneContainerPos.style.animation = 'none';
+  void craneContainerPos.offsetHeight;
 }
 
 //=========================
@@ -221,7 +215,6 @@ function setCranePosition() {
 function playCraneAnimation()
 {
   setCranePosition();
-
   playAudio(initiateSFX);
   
   let rng = getRandom(0, 100);
@@ -236,8 +229,6 @@ function playCraneAnimation()
   
   
   craneContainerPos.style.setProperty("--craneTargetPos", craneTargetPos);
-	
-  void craneContainerPos.offsetHeight;
 	
   moveBaseIn();
   rotateBaseIn();
@@ -264,9 +255,10 @@ function playCraneAnimation()
 
 }
 
+
 function moveBaseIn() {
   craneContainerPos.style.animation = 'none';
-  void craneContainerPos.offsetHeight; 
+  void craneContainerPos.offsetHeight;
   craneContainerPos.style.animation = 'moveBase 1.5s ease-in-out forwards';
   craneItem.style.visibility = 'hidden';
 }
@@ -305,14 +297,14 @@ function rotateBaseOut() {
 
 function dropClaw() {
   craneContainerPos.style.animation = 'none';
-  void craneContainerPos.offsetHeight; 
+  void craneContainerPos.offsetHeight;
   craneContainerPos.style.animation = 'dropClaw 2s ease-out forwards';
 }
 
 function raiseClaw() {
-  craneContainerPos.style.animation = '';
-  void craneContainerPos.offsetHeight; 
-  craneContainerPos.style.animation = 'dropClaw 3s ease-in-out reverse forwards';
+  craneContainerPos.style.animation = 'none';
+  void craneContainerPos.offsetHeight;
+  craneContainerPos.style.animation = 'raiseClaw 3s ease-in-out forwards';
 }
 
 function openClaws() {
