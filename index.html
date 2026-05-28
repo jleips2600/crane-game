@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crane Game Widget - Portfolio Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="widget-container">
+    <div id="container">
+      <div id="message"> </div>
+      <div id="craneRangeDisplay"> </div>
+      <div id="craneContainerPos">
+        <div id="craneContainerRot">
+          <img id="craneLeftClaw" />
+          <img id="craneItem" />
+          <img id="craneRightClaw" />
+          <img id="craneBase" />
+        </div>
+      </div>
+      <div id="displayContainer">
+        <div id="displayItem">Item Name</div>
+        <img id="displayImage" />
+        <div id="lightContainer">
+          <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="lightCenter"><circle id="main-circle" cx="300" cy="300" r="100" fill="url(#lightCenterGradient)"/></g>
+            <g class="lightRaysA">
+              <path d="M339.375 75H260.625L339.375 525H260.625Z" fill="url(#lightRaysGradient)"/>
+              <path d="M525 339.375V260.625L75 339.375V260.625Z" fill="url(#lightRaysGradient)"/>
+              <path d="M478.986 160.788L439.212 121.014L160.788 478.986L121.014 439.212Z" fill="url(#lightRaysGradient)"/>
+              <path d="M439.212 478.986L478.986 439.212L121.014 160.788L160.788 121.014Z" fill="url(#lightRaysGradient)"/>
+            </g>
+            <g class="lightRaysB">
+              <path d="M339.375 75H260.625L339.375 525H260.625Z" fill="url(#lightRaysGradient)"/>
+              <path d="M525 339.375V260.625L75 339.375V260.625Z" fill="url(#lightRaysGradient)"/>
+              <path d="M478.986 160.788L439.212 121.014L160.788 478.986L121.014 439.212Z" fill="url(#lightRaysGradient)"/>
+              <path d="M439.212 478.986L478.986 439.212L121.014 160.788L160.788 121.014Z" fill="url(#lightRaysGradient)"/>
+            </g>
+            <defs>
+              <radialGradient id="lightRaysGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 300) scale(200)">
+                <stop offset="0.25" stop-color="white"/>
+                <stop offset="0.75" stop-color="#FF6666" class="color-stop"/>
+                <stop offset="1" stop-color="#FF6666" stop-opacity="0" class="color-stop"/>
+              </radialGradient>
+              <radialGradient id="lightCenterGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 300) scale(75)">
+                <stop offset=".44" stop-color="white"/>
+                <stop offset=".77" stop-color="#FF6666" stop-opacity=".9" class="color-stop"/>
+                <stop offset="1" stop-color="#FF6666" stop-opacity="0" class="color-stop"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+        <div id="displayUser">User Name</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Controls -->
+  <div id="demo-panel">
+    <h2>🎮 Crane Widget Demo</h2>
+    <button onclick="demoSub()">Subscriber</button>
+    <button onclick="demoGiftedSub()">Gifted Sub</button>
+    <button onclick="demoBits()">Bits (100)</button>
+    <button onclick="demoBitsMulti()">Bits ×5</button>
+    <button onclick="demoDonation()">Donation ($5)</button>
+    <button onclick="demoChannelPoints()">Channel Points</button>
+    <button onclick="demoRandom()">Random Pull</button>
+    <button onclick="clearQueueDemo()">Clear Queue</button>
+  </div>
+
+  <script src="se-simulate.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
