@@ -137,10 +137,10 @@
 
 @keyframes moveBase {
   0% {
-    transform: translateX(var(--craneStartPos)) translateY(-900px);
+    transform: translateY(-900px) translateX(var(--craneStartPos));
   }
   100% {
-    transform: translateX(var(--craneTargetPos)) translateY(-900px);
+    transform: translateY(-900px) translateX(var(--craneTargetPos));
   }
 }
 
