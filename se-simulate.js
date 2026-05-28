@@ -9,24 +9,27 @@ const SE_API = {
 
 window.SE_widgetLoadData = {
     detail: {
-    channel: { username: "Claw Player", id: "demo123" },
-    overlay: { isEditorMode: false },
-    fieldData: {
-      craneLeftClaw: "assets/clawArmL.png",
-      craneRightClaw: "assets/clawArmR.png",
-      craneBase: "assets/clawBase.png",
-      craneDirection: "random",
-      displayScale: 4,
-      displayTime: 6,
-      uniqueChance: 8,
-      commonChance: 55, uncommonChance: 25, rareChance: 12,
-      epicChance: 6, legendaryChance: 2,
-      enableSubs: true, enableGiftedSubs: true,
-      enableBits: true, bitMinimum: 50,
-      enableDonos: true, donoMinimum: 500
+      channel: { username: "Claw Player", id: "demo123" },
+      overlay: { isEditorMode: false },
+      fieldData: {
+        craneLeftClaw: "assets/clawArmL.png",
+        craneRightClaw: "assets/clawArmR.png",
+        craneBase: "assets/clawBase.png",
+        craneDirection: "random",
+        displayScale: 4,
+        displayTime: 6,
+        uniqueChance: 8,
+        commonChance: 55, 
+        uncommonChance: 25, 
+        rareChance: 12,
+        epicChance: 6, 
+        legendaryChance: 2,
+        enableSubs: true, enableGiftedSubs: true,
+        enableBits: true, bitMinimum: 50,
+        enableDonos: true, donoMinimum: 500
+      }
     }
-  }
-};
+  };
 
 function createControlPanel() {
   const panel = document.createElement('div');
