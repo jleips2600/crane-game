@@ -64,5 +64,3 @@ window.demoChannelPoints = () => {
 
 window.demoRandom = () => window.demoSub();
 window.clearQueueDemo = () => { queue = []; isBusy = false; alert("Queue cleared!"); };
-
-SESimulate.widgetLoad();
