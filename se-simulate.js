@@ -53,44 +53,54 @@ function createControlPanel() {
 
 // ====================== DEMO FUNCTIONS ======================
 window.demoSubscribe = () => {
-    window.dispatchEvent(new CustomEvent('onEventReceived', {
-    detail: {
-      listener: 'subscriber-latest',
-      event: {
-        name: "Crane Player",
-        amount: 1,
-        tier: 1000,
-        gifted: false,
-        bulkGifted: false,
-        isCommunityGift: false,
-        sender: "Crane Player"
-      }
-    }
-  }));
+    window.dispatchEvent(
+      new CustomEvent("onEventReceived", {
+        detail: {
+          listener: "event",
+          event: {
+            type: "subscriber",
+            data: {
+              displayName: "Claw Player",
+              gifted: false
+            }
+          }
+        }
+      })
+    );
 };
 
 window.demoCheer = () => {
-  window.dispatchEvent(new CustomEvent('onEventReceived', {
-    detail: { listener: 'cheer-latest', 
-             event: { 
-               name: "Crane Player", 
-               amount: 300, 
-               message: "" 
-             } 
-            }
-  }));
+    window.dispatchEvent(
+    new CustomEvent("onEventReceived", {
+      detail: {
+        listener: "event",
+        event: {
+          type: "cheer",
+          data: {
+            displayName: "Claw Player",
+            amount: 100
+          }
+        }
+      }
+    })
+  );
 };
 
 window.demoDonate = () => {
-  window.dispatchEvent(new CustomEvent('onEventReceived', {
-      detail: { listener: 'tip-latest', 
-               event: { 
-                 name: "Crane Player", 
-                 amount: 300, 
-                 message: "" 
-               } 
-              }
-    }));
+  window.dispatchEvent(
+    new CustomEvent("onEventReceived", {
+      detail: {
+        listener: "event",
+        event: {
+          type: "tip",
+          data: {
+            displayName: "Claw Player",
+            amount: 10
+          }
+        }
+      }
+    })
+  );
 }
 
 // ====================== STYLES FOR CONTROL PANEL ======================
