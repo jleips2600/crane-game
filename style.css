@@ -1,0 +1,235 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  overflow: hidden;
+  font-family: 'Luckiest Guy', sans-serif;
+  color: white;
+}
+
+#widget-container {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  margin: 40px auto;
+  border: 4px solid #222;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 255, 100, 0.4);
+}
+
+/* ==================== MAIN WIDGET STYLES ==================== */
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+  opacity: 0;
+  z-index: 10000;
+}
+
+.craneRangeText {
+  position: absolute;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 3px green;
+  text-align: center;
+  white-space: nowrap;
+  z-index: -100;
+}
+
+#message {
+  position: absolute;
+  visibility: hidden;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: red;
+  -webkit-text-stroke: 3px white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 80px;
+  z-index: 100;
+}
+
+#container {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#craneContainerPos {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 1200px;
+  width: 300px;
+  bottom: 0px;
+  --craneStartPos: 0px;
+  --craneTargetPos: 0px;
+}
+
+#craneContainerRot {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 1200px;
+  width: 300px;
+  bottom: 0px;
+  transform-origin: center top;
+}
+
+#craneLeftClaw {
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  bottom: -225px;
+  left: -53px;
+  transform-origin: right top;
+}
+
+#craneRightClaw {
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  bottom: -225px;
+  right: -53px;
+  transform-origin: left top;
+}
+
+#craneBase {
+  position: absolute;
+  height: 1600px;
+  width: 400px;
+  bottom: -300px;
+}
+
+#craneItem {
+  visibility: hidden;
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  bottom: -300px;
+  transform-origin: 50% 33%;
+  animation: dangle 3s ease-in-out infinite forwards;
+}
+
+#displayContainer {
+  position: absolute;
+  display: flex;
+  width: 500px;
+  height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform-origin: bottom left;
+}
+
+#displayItem {
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 3px blue;
+  visibility: hidden;
+  margin-bottom: 10px;
+}
+
+#displayImage {
+  visibility: hidden;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  z-index: 100;
+}
+
+#displayUser {
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 3px blue;
+  visibility: hidden;
+  margin-top: 10px;
+}
+
+#lightContainer {
+  display: none;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+}
+
+#lightContainer svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes rotateLeftClaw { 0% { transform: rotate(0deg); } 100% { transform: rotate(35deg); }}
+@keyframes rotateRightClaw { 0% { transform: rotate(0deg); } 100% { transform: rotate(-35deg); }}
+@keyframes moveBase { 0% { transform: translateX(var(--craneStartPos)) translateY(-900px); } 100% { transform: translateX(var(--craneTargetPos)) translateY(-900px); }}
+@keyframes dropClaw { 0% { transform: translateX(var(--craneTargetPos)) translateY(-900px); } 100% { transform: translateX(var(--craneTargetPos)) translateY(0px); }}
+@keyframes dangle { 0% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } 100% { transform: rotate(-5deg); }}
+
+.lightCenter { animation: pulse 3s ease-in-out infinite; transform-origin: 50% 50%; }
+.lightRaysA { animation: spin-ccw 7s linear infinite; opacity: 50%; transform-origin: 50% 50%; }
+.lightRaysB { animation: spin-cw 13s linear infinite; opacity: 50%; transform-origin: 50% 50%; }
+
+@keyframes pulse { 0%,100% { transform: scale(1.2); } 50% { transform: scale(1.5); }}
+@keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); }}
+@keyframes spin-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); }}
+
+.displayAnimation {
+  animation: display .8s ease-in-out, breathe 5s ease-in-out infinite;
+  animation-delay: 0ms, 800ms;
+}
+@keyframes display { 0% { transform: scale(.1,.1); opacity: 0%; } 80% { transform: scale(1.5,1.5); opacity: 100%; } 100% { transform: scale(1,1); }}
+@keyframes breathe { 0%,100% { transform: translate(0,0) scale(1,1); } 50% { transform: translate(0,-3%) scale(1.03,.97); }}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: scale(0,0); }
+  50% { opacity: 1; transform: scale(1,1.3); }
+  100% { opacity: 0; transform: scale(.8,.8); }
+}
+
+/* Demo Panel */
+#demo-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: 3px solid #0f0;
+  z-index: 10000;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 95%;
+}
+
+#demo-panel button {
+  padding: 12px 20px;
+  font-family: 'Luckiest Guy', sans-serif;
+  font-size: 18px;
+  background: #111;
+  color: #0f0;
+  border: 2px solid #0f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#demo-panel button:hover {
+  background: #0f0;
+  color: black;
+}
