@@ -236,6 +236,7 @@ function playCraneAnimation()
   
   
   craneContainerPos.style.setProperty("--craneTargetPos", craneTargetPos);
+	
   void craneContainerPos.offsetHeight;
 	
   moveBaseIn();
@@ -264,14 +265,14 @@ function playCraneAnimation()
 }
 
 function moveBaseIn() {
-  craneContainerPos.style.animation = '';
+  craneContainerPos.style.animation = 'none';
   void craneContainerPos.offsetHeight; 
   craneContainerPos.style.animation = 'moveBase 1.5s ease-in-out forwards';
   craneItem.style.visibility = 'hidden';
 }
 
 function rotateBaseIn() {
-  craneContainerRot.style.animation = '';
+  craneContainerRot.style.animation = 'none';
   void craneContainerRot.offsetHeight; 
   if(craneDirection === 'right')
   {
@@ -284,13 +285,13 @@ function rotateBaseIn() {
 }
 
 function moveBaseOut() {
-  craneContainerPos.style.animation = '';
+  craneContainerPos.style.animation = 'none';
   void craneContainerPos.offsetHeight; 
   craneContainerPos.style.animation = 'moveBase 1.5s ease-in-out reverse forwards';
 }
 
 function rotateBaseOut() {
-  craneContainerRot.style.animation = '';
+  craneContainerRot.style.animation = 'none';
   void craneContainerRot.offsetHeight; 
 
   if(craneDirection === 'left') {
@@ -303,7 +304,7 @@ function rotateBaseOut() {
 }
 
 function dropClaw() {
-  craneContainerPos.style.animation = '';
+  craneContainerPos.style.animation = 'none';
   void craneContainerPos.offsetHeight; 
   craneContainerPos.style.animation = 'dropClaw 2s ease-out forwards';
 }
@@ -315,9 +316,9 @@ function raiseClaw() {
 }
 
 function openClaws() {
-  craneRightClaw.style.animation = '';
+  craneRightClaw.style.animation = 'none';
   void craneRightClaw.offsetHeight; 
-  craneLeftClaw.style.animation = '';
+  craneLeftClaw.style.animation = 'none';
   void craneLeftClaw.offsetHeight; 
   craneRightClaw.style.animation = 'rotateRightClaw 1s ease-in-out forwards';
   craneLeftClaw.style.animation = 'rotateLeftClaw 1s ease-in-out forwards';
