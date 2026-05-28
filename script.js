@@ -683,7 +683,7 @@ function start() {
 }
 
 setTimeout(
-	start;
+	start();
 	console.log("STARTING");
 	, 1000);
 
