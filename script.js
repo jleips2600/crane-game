@@ -682,7 +682,7 @@ function start() {
   initialize();
 }
 
-start();
+setTimeout(start, 1000);
 
 //=========================
 //    ON EVENT RECEIVED
