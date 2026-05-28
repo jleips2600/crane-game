@@ -52,7 +52,7 @@ function createControlPanel() {
 }
 
 // ====================== DEMO FUNCTIONS ======================
-window.demoSubscribe = () => {
+function demoSubscribe() = {
     window.dispatchEvent(
       new CustomEvent("onEventReceived", {
         detail: {
@@ -69,7 +69,7 @@ window.demoSubscribe = () => {
     );
 };
 
-window.demoCheer = () => {
+function demoCheer() = {
     window.dispatchEvent(
     new CustomEvent("onEventReceived", {
       detail: {
@@ -86,7 +86,7 @@ window.demoCheer = () => {
   );
 };
 
-window.demoDonate = () => {
+function demoDonate() = {
   window.dispatchEvent(
     new CustomEvent("onEventReceived", {
       detail: {
