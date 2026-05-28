@@ -9,7 +9,7 @@ const SE_API = {
 
 window.SE_widgetLoadData = {
     detail: {
-    channel: { username: "Crane Player", id: "demo123" },
+    channel: { username: "Claw Player", id: "demo123" },
     overlay: { isEditorMode: false },
     fieldData: {
       craneLeftClaw: "assets/clawArmL.png",
