@@ -121,9 +121,11 @@ function getItem() {
   
   // Demo items
   const demoItems = [
-    {name: "Golden Dragon", rarity: "legendary", image: "assets/items/legendary.png"},
-    {name: "Neon Cat", rarity: "epic", image: "assets/items/epic.png"},
-    {name: "Lucky Coin", rarity: "rare", image: "assets/items/rare.png"}
+    {name: "Shooting Star", rarity: "common", image: "assets/items/prizeShootingStar.png"},
+    {name: "Space Cow", rarity: "uncommon", image: "assets/items/prizeCow.png"},
+    {name: "Ray Gun", rarity: "rare", image: "assets/items/prizeRayGun.png"},
+    {name: "Astronaut", rarity: "epic", image: "assets/items/prizeAstronaut.png"},
+    {name: "Glorp", rarity: "legendary", image: "assets/items/prizeGlorp.png"},
   ];
   
   currentItem = demoItems[getRandom(0, demoItems.length-1)];
