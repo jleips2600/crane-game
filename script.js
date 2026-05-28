@@ -504,51 +504,6 @@ function clearItem()
 }
 
 //=========================
-//        SAVE DATA
-//=========================
-
-function saveData() {
-  console.log("saving data");
-  SE_API.store.set(savePath, itemPool);
-  refreshList();
-}
-
-//=========================
-//       LOAD DATA
-//=========================
-
-async function loadData() {
-    try {
-      console.log("loading data");
-            
-      //itemPool = await SE_API.store.get(savePath);
-      
-      //if(itemPool == null)
-      //{
-      //  itemPool = [];
-      //  saveData();
-      //}
-      
-      initialize();
-      
-    } catch (error) {
-      console.error(error);
-    }
-}
-
-//=========================
-//     CLEAR ITEM POOL
-//=========================
-
-function resetData()
-{
-	console.log("data cleared");
-	SE_API.store.set(savePath, []);
-    itemPool = [];
-    refreshList();
-}
-
-//=========================
 //       INITIALIZE
 //=========================
 
@@ -561,7 +516,7 @@ function initialize() {
       const nameKey = `item${i}Name`;
       const rarityKey = `item${i}Rarity`;
       const imageKey = `item${i}Image`;
-
+		  	  
       if (fieldData[nameKey]?.trim() && 
           fieldData[rarityKey]?.trim() && 
           fieldData[imageKey]?.trim()) {
@@ -572,6 +527,29 @@ function initialize() {
           });
       }
   }
+
+  itemPool = [
+  {
+	  name: "Shooting Star",
+	  rarity: "common",
+	  image: "assets/items/prizeShootingStar.png" },
+  {
+	  name: "Space Cow",
+	  rarity: "uncommon",
+	  image: "assets/items/prizeCow.png" },
+  {
+	  name: "Ray Gun",
+	  rarity: "rare",
+	  image: "assets/items/prizeRayGun.png" },
+  {
+	  name: "Astronaut",
+	  rarity: "epic",
+	  image: "assets/items/prizeAstronaut.png" },
+  {
+	  name: "Glorp",
+	  rarity: "legendary",
+	  image: "assets/items/prizeGlorp.png" },
+  ];
 
   if(isEditorMode)
   {
@@ -701,7 +679,7 @@ function start() {
     craneDirection = fieldData.craneDirection;
   }
     
-  loadData();
+  initialize();
 }
 
 start();
