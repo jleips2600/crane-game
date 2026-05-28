@@ -29,6 +29,8 @@ function createControlPanel() {
   document.body.appendChild(panel);
 }
 
+createControlPanel();
+
 window.SE_widgetLoadData = {
     detail: {
     channel: { username: "Crane Player", id: "demo123" },
