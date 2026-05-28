@@ -211,7 +211,7 @@ function setCranePosition() {
   }
 
   craneContainerPos.style.setProperty("--craneStartPos", craneStartPos);
-  //craneContainerPos.style.transform = `translateX(${craneStartPos}) translateY(-900px)`;
+  craneContainerPos.style.transform = `translateX(${craneStartPos}) translateY(-900px)`;
 }
 
 //=========================
