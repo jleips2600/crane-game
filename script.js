@@ -682,7 +682,10 @@ function start() {
   initialize();
 }
 
-setTimeout(start, 1000);
+setTimeout(
+	start;
+	console.log("STARTING");
+	, 1000);
 
 //=========================
 //    ON EVENT RECEIVED
