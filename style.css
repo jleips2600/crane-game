@@ -42,7 +42,7 @@
   text-align: center;
   align-items: center;
   justify-content: center; 
-  transform: scale(.75);
+  transform: scale(.5);
   transform-origin: top left;
 }
 
