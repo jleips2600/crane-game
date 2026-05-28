@@ -57,9 +57,9 @@ window.demoSubscribe = () => {
     detail: {
       listener: 'subscriber-latest',
       event: {
-        name,
-        amount,
-        tier,
+        name: "Crane Player",
+        amount: 1,
+        tier: 1000,
         gifted: false,
         bulkGifted: false,
         isCommunityGift: false,
@@ -71,13 +71,25 @@ window.demoSubscribe = () => {
 
 window.demoCheer = () => {
   window.dispatchEvent(new CustomEvent('onEventReceived', {
-    detail: { listener: 'cheer-latest', event: { "Crane Player", 300, "" } }
+    detail: { listener: 'cheer-latest', 
+             event: { 
+               name: "Crane Player", 
+               amount: 300, 
+               message: "" 
+             } 
+            }
   }));
 };
 
 window.demoDonate = () => {
   window.dispatchEvent(new CustomEvent('onEventReceived', {
-      detail: { listener: 'tip-latest', event: { "Crane Player", 300, "" } }
+      detail: { listener: 'tip-latest', 
+               event: { 
+                 name: "Crane Player", 
+                 amount: 300, 
+                 message: "" 
+               } 
+              }
     }));
 }
 
