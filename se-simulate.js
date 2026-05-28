@@ -6,6 +6,29 @@ const SE_API = {
   }
 };
 
+function createControlPanel() {
+  const panel = document.createElement('div');
+  panel.id = 'control-panel';
+  panel.innerHTML = `
+    <div class="panel-header">
+      <h3>🎮 Demo Controls</h3>
+    </div>
+    <div class="panel-buttons">
+      <button onclick="demoSubscribe()" class="demo-btn sub-btn">
+        <span>⭐</span> Subscribe
+      </button>
+      <button onclick="demoCheer()" class="demo-btn cheer-btn">
+        <span>💎</span> Cheer (Bits)
+      </button>
+      <button onclick="demoDonate()" class="demo-btn donate-btn">
+        <span>💵</span> Donate
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(panel);
+}
+
 window.SE_widgetLoadData = {
     detail: {
     channel: { username: "Crane Player", id: "demo123" },
@@ -61,6 +84,3 @@ window.demoChannelPoints = () => {
     detail: { listener: 'event', event: { type: 'channelPointsRedemption', data: { redemption: "Crane Pull", displayName: "PointRedeemer" } } }
   }));
 };
-
-window.demoRandom = () => window.demoSub();
-window.clearQueueDemo = () => { queue = []; isBusy = false; alert("Queue cleared!"); };
