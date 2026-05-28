@@ -1,8 +1,8 @@
 // ====================== CONFIG ======================
 const ASSETS = {
-  craneLeft: 'assets/crane-left.png',
-  craneRight: 'assets/crane-right.png',
-  craneBase: 'assets/crane-base.png'
+  craneLeft: 'assets/clawArmL.png',
+  craneRight: 'assets/clawArmR.png',
+  craneBase: 'assets/clawBase.png'
 };
 
 // ====================== HTML STRUCTURE ======================
