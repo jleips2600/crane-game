@@ -43,6 +43,7 @@
   align-items: center;
   justify-content: center; 
   transform: scale(0.5);
+  transform-origin: top left;
 }
 
 #craneContainerPos
