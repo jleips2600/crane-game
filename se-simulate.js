@@ -14,9 +14,9 @@ const SESimulate = {
           channel: { username: "SezDemo", id: "demo123" },
           overlay: { isEditorMode: false },
           fieldData: {
-            craneLeftClaw: "assets/crane-left.png",
-            craneRightClaw: "assets/crane-right.png",
-            craneBase: "assets/crane-base.png",
+            craneLeftClaw: "assets/clawArmL.png",
+            craneRightClaw: "assets/clawArmR.png",
+            craneBase: "assets/clawBase.png",
             craneDirection: "random",
             displayScale: 4,
             displayTime: 6,
