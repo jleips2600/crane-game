@@ -1,222 +1,388 @@
-
-:root{
-  --bg:#0d1117;
-  --panel:#161b22;
-  --border:rgba(255,255,255,.08);
-  --text:#e6edf3;
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+  opacity: 0;
+  z-index: 10000;
 }
 
-*{
-  box-sizing:border-box;
+.craneRangeText
+{
+  position: absolute;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 3px green;
+  text-align: center;
+  white-space: nowrap;
+  z-index: -100;
 }
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  overflow:hidden;
-  font-family:system-ui,sans-serif;
+#message {
+  position: absolute;
+  visibility: hidden;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: red;
+  -webkit-text-stroke: 3px white;
+  text-align: center;
+  display: flex;
+  z-index: 100;
 }
 
-#app{
-  display:flex;
-  height:100vh;
+#container
+{
+  position: absolute;
+  display: flex;
+  width: 1920px;
+  height: 1080px;
+  text-align: center;
+  align-items: center;
+  justify-content: center; 
 }
 
-#controls{
-  width:280px;
-  background:var(--panel);
-  border-right:1px solid var(--border);
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  z-index:20;
+#craneContainerPos
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 1200px;
+  width: 300px;
+  bottom: 0px;
+  transform: translateX(craneStartPos);
+  --craneStartPos: 0px;
+  --craneTargetPos: 0px;
 }
 
-#controls h1{
-  margin:0 0 10px;
-  font-size:24px;
+#craneContainerRot
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 1200px;
+  width: 300px;
+  bottom: 0px;
+  transform-origin: center top;
 }
 
-#controls button{
-  background:#21262d;
-  border:1px solid var(--border);
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.2s;
-  font-size:14px;
+#craneLeftClaw
+{
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  bottom: -225px;
+  left: -53px;
+  transform-origin: right top;
 }
 
-#controls button:hover{
-  border-color:#58a6ff;
-  transform:translateY(-2px);
+#craneRightClaw
+{
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  bottom: -225px;
+  right: -53px;
+  transform-origin: left top;
 }
 
-.divider{
-  height:1px;
-  background:var(--border);
-  margin:10px 0;
+#craneBase
+{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 1600px;
+  width: 400px;
+  bottom: -300px;
 }
 
-#stage-wrapper{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+#craneItem
+{
+  visibility: visible;
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  bottom: -300px;  
+  transform-origin: 50% 33%;
+  animation: dangle 3s ease-in-out infinite forwards;
 }
 
-#stage{
-  position:relative;
-  width:1920px;
-  height:1080px;
-  transform:scale(.72);
-  transform-origin:center;
+@keyframes rotateLeftClaw {
+  0% {
+    transform: rotate(0deg); 
+  }
+  100% {
+    transform: rotate(35deg);
+  }
 }
 
-#craneContainerPos{
-  position:absolute;
-  width:300px;
-  height:1200px;
-  left:50%;
-  top:-250px;
-  transform:translateX(-50%);
+@keyframes rotateRightClaw {
+  0% {
+    transform: rotate(0deg); 
+  }
+  100% {
+    transform: rotate(-35deg);
+  }
 }
 
-#craneContainerRot{
-  position:relative;
-  width:300px;
-  height:1200px;
-  transform-origin:top center;
+@keyframes moveBase { 
+  0% {
+    transform: translateX(var(--craneStartPos)) translateY(-900px);
+  }
+  100% {
+    transform: translateX(var(--craneTargetPos)) translateY(-900px);
+  }
 }
 
-#craneBase{
-  position:absolute;
-  width:400px;
-  height:1600px;
-  left:-50px;
-  top:-300px;
+@keyframes rotateBaseL { 
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 
-#craneLeftClaw,
-#craneRightClaw{
-  position:absolute;
-  width:200px;
-  height:300px;
-  top:980px;
+@keyframes pendulumBaseL {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-#craneLeftClaw{
-  left:-50px;
-  transform-origin:right top;
+@keyframes rotateBaseR { 
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
 }
 
-#craneRightClaw{
-  right:-50px;
-  transform-origin:left top;
+@keyframes pendulumBaseR {
+  0% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-#craneItem{
-  position:absolute;
-  width:250px;
-  height:250px;
-  top:920px;
-  left:25px;
-  visibility:hidden;
-  animation:dangle 3s ease-in-out infinite;
+@keyframes dropClaw {
+  0% {
+    transform: translateX(var(--craneTargetPos)) translateY(-900px);
+  }
+  100% {
+    transform: translateX(var(--craneTargetPos)) translateY(0px);
+  }
 }
 
-#displayContainer{
-  position:absolute;
-  right:120px;
-  bottom:140px;
-  width:500px;
-  height:500px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  font-family:"Luckiest Guy", cursive;
+@keyframes dangle {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 
-#displayItem,
-#displayUser{
-  font-size:48px;
-  -webkit-text-stroke:3px #000;
-  text-align:center;
-  visibility:hidden;
-  z-index:5;
+.lightCenter {
+  animation: pulse 3s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  z-index: 100;
 }
 
-#displayImage{
-  width:300px;
-  height:300px;
-  visibility:hidden;
-  z-index:5;
+.lightRaysB {
+  animation: spin-cw 13s linear infinite;
+  opacity: 50%;
+  transform-origin: 50% 50%;
+  z-index: 3;
 }
 
-#lightContainer{
-  position:absolute;
-  width:500px;
-  height:500px;
-  display:none;
-  justify-content:center;
-  align-items:center;
+.lightRaysA {
+  animation: spin-ccw 7s linear infinite;
+  opacity: 50%;
+  transform-origin: 50% 50%;
+  z-index: 3;
 }
 
-.light-rays{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background:
-    radial-gradient(circle, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 65%),
-    conic-gradient(from 0deg, rgba(255,255,255,.2), transparent, rgba(255,255,255,.2));
-  animation:spin 8s linear infinite;
+@keyframes pulse {
+  0%, 100% { transform: scale(1.2); }
+  50% { transform: scale(1.5); }
+}
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
-.sparkle{
-  position:absolute;
-  width:40px;
-  height:40px;
-  background:white;
-  clip-path:polygon(50% 0%,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0% 50%,40% 40%);
-  animation:sparkle .8s ease-out forwards;
+#craneRangeDisplay
+{
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 1080px;
+  width: 1920px;
 }
 
-@keyframes spin{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+#displayContainer
+{ 
+  position: absolute;
+  display: flex; 
+  width: 500px;
+  height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform-origin: bottom left;
 }
 
-@keyframes dangle{
-  0%{transform:rotate(-5deg);}
-  50%{transform:rotate(5deg);}
-  100%{transform:rotate(-5deg);}
+.displayText
+{
+  position: absolute;
+  visibility: visible;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  -webkit-text-stroke: 3px blue;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
 }
 
-@keyframes clawOpenL{
-  to{transform:rotate(35deg);}
+#lightContainer {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; 
+  z-index: 0;
+  animation: pulse 7s ease-in-out infinite;
 }
 
-@keyframes clawOpenR{
-  to{transform:rotate(-35deg);}
+#lightContainer svg {
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes sparkle{
-  0%{opacity:0;transform:scale(0);}
-  50%{opacity:1;}
-  100%{opacity:0;transform:scale(1.5);}
+#displayItem
+{  
+  display: block;
+  position: relative;
+  visibility: hidden;
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  width: 100%;
+  height: 50px;
+  -webkit-text-stroke: 3px blue;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.reveal{
-  animation:pop .5s ease;
+#displayImage {
+  visibility: hidden; 
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; 
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 100;
 }
 
-@keyframes pop{
-  0%{transform:scale(.2);opacity:0;}
-  70%{transform:scale(1.2);}
-  100%{transform:scale(1);}
+#displayUser
+{
+  font-family: "Luckiest Guy";
+  font-size: 50px;
+  color: white;
+  display: block;
+  position: relative;
+  visibility: hidden;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.displayAnimation {
+  animation: display .8s ease-in-out, breathe 5s ease-in-out infinite;
+  animation-delay: 0ms, 800ms;
+}
+
+@keyframes display {
+  0% { transform: scale(.1, .1); opacity: 0%; }
+  80% { transform: scale(1.5, 1.5); opacity: 100%; }
+  100% { transform: scale(1,1); }
+}
+
+@keyframes breathe {
+  0% { transform: translate(0, 0) scale(1, 1); }
+  50% { transform: translate(0, -3%) scale(1.03, .97); }
+  100% { transform: translate(0, 0) scale(1,1); }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1, 1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(.8, .8);
+  }
 }
