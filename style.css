@@ -1,3 +1,7 @@
+.body { 
+  overflow: hidden;
+}
+
 .sparkle {
   position: absolute;
   width: 20px;
