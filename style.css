@@ -138,9 +138,11 @@
 @keyframes moveBase {
   0% {
     left: var(--craneStartPos);
+    top: 0px;
   }
   100% {
     left: var(--craneTargetPos);
+    top: 0px;
   }
 }
 
