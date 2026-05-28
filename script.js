@@ -239,35 +239,8 @@ function playCraneAnimation()
   
   moveBaseIn();
   rotateBaseIn();
-  
-  setTimeout(() => {
-   
-    openClaws();
-    
-    setTimeout(() => {
-      
-      dropClaw();
-      
-      setTimeout(() => {
-        closeClaws();
-      }, 750);
-      
-      setTimeout(() => {
-        
-        raiseClaw();
-        
-        setTimeout(() => {
-          
-          moveBaseOut();
-          rotateBaseOut();
-          
-          setTimeout(() => {
-            playDisplayAnimation();
-          }, 2000);
-        }, 3500);
-      }, 3000);
-    }, 1500);
-  }, 3000);
+	
+
 
 }
 
