@@ -231,8 +231,7 @@ function playCraneAnimation()
   craneContainerPos.style.setProperty("--craneTargetPos", craneTargetPos);
 	
   moveBaseIn();
-  rotateBaseIn();
-	
+  
 
 
 }
