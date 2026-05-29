@@ -64,8 +64,8 @@ let displayContainer = document.getElementById("displayContainer");
 let craneContainerPos = document.getElementById("craneContainerPos");
 let craneRangeDisplay = document.getElementById("craneRangeDisplay");
 
-let displayPositionX = 50;
-let displayPositionY = 50;
+displayPositionX = 50;
+displayPositionY = 50;
 let displayScale = 1;
 
 let craneRange = 50;
@@ -127,8 +127,6 @@ function createControlPanel() {
       </select>
     </label>
 
-    <button id="apply">Apply</button>
-
     <div class="panel-buttons">
       <button onclick="demoSubscribe()">⭐ Sub</button>
       <button onclick="demoCheer()">💎 Cheer</button>
@@ -137,8 +135,20 @@ function createControlPanel() {
   `;
 
   document.body.appendChild(panel);
+  bindLiveControls(); 
+}
 
-  document.getElementById("apply").addEventListener("click", applyControls);
+function bindLiveControls() {
+  const controls = [
+    "c-pos",
+    "c-scale",
+    "c-dir",
+    "c-range"
+  ];
+
+  controls.forEach(id => {
+    document.getElementById(id).addEventListener("change", applyControls);
+  });
 }
 
 // ======================
@@ -222,7 +232,7 @@ function flash(el) {
 
   setTimeout(() => {
     el.style.outline = "0px solid transparent";
-  }, 500);
+  }, 2000);
 }
 
 // ======================
