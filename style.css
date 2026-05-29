@@ -62,6 +62,7 @@ body {
   transform-origin: top left;
   overflow: hidden; 
   background-color: white;
+  border: 5px solid #00ff88;
 }
 
 #craneContainerPos {
