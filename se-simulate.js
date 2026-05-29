@@ -282,7 +282,7 @@ style.textContent = `
   #control-panel {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     background: rgba(20,20,30,0.95);
     border: 2px solid #00ff88;
     border-radius: 12px;
