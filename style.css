@@ -10,9 +10,8 @@
   initial-value: 0px;
 }
 
-.body { 
+body { 
   background-color: #202029;
-  overflow: hidden;
 }
 
 .sparkle {
