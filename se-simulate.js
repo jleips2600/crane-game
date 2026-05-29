@@ -52,7 +52,6 @@ const controlState = {
   displayPosition: "center",
   displayScale: "medium",
   craneDirection: "random",
-  craneRange: "medium"
 };
 
 // ======================
@@ -103,15 +102,6 @@ function createControlPanel() {
       </select>
     </label>
 
-    <label>
-      Crane Range
-      <select id="c-range">
-        <option value="small">Small</option>
-        <option value="medium" selected>Medium</option>
-        <option value="large">Large</option>
-      </select>
-    </label>
-
     <div class="panel-buttons">
       <button onclick="demoSubscribe()">⭐ Sub</button>
       <button onclick="demoCheer()">💎 Cheer</button>
@@ -127,8 +117,7 @@ function bindLiveControls() {
   const controls = [
     "c-pos",
     "c-scale",
-    "c-dir",
-    "c-range"
+    "c-dir"
   ];
 
   controls.forEach(id => {
@@ -143,12 +132,10 @@ function applyControls() {
   const pos = document.getElementById("c-pos").value;
   const scale = document.getElementById("c-scale").value;
   const dir = document.getElementById("c-dir").value;
-  const range = document.getElementById("c-range").value;
 
   controlState.displayPosition = pos;
   controlState.displayScale = scale;
   controlState.craneDirection = dir;
-  controlState.craneRange = range;
 
   // ----------------------
   // DISPLAY POSITION
@@ -176,18 +163,6 @@ function applyControls() {
   // ----------------------
   craneDirection = dir;
   randomizeCraneDirection = dir === "random";
-  flash(craneContainerPos);
-
-  // ----------------------
-  // CRANE RANGE
-  // ----------------------
-  craneRange =
-    range === "small" ? 25 :
-    range === "medium" ? 50 :
-    80;
-
-  craneRangeDisplay.style.width = `${(craneRange / 100) * 1520}px`;
-  flash(craneRangeDisplay);
 }
 
 // ======================
