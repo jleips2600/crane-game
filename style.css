@@ -1,3 +1,15 @@
+@property --craneStartPos {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --craneTargetPos {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 .body { 
   overflow: hidden;
 }
@@ -136,10 +148,10 @@
 
 @keyframes moveBase {
   0% {
-    transform: translateY(-900px) translateX(-1250px);
+    transform: translateY(-900px) translateX(var(--craneStartPos));
   }
   100% {
-    transform: translateY(-900px) translateX(0px);
+    transform: translateY(-900px) translateX(var(--craneTargetPos));
   }
 }
 
