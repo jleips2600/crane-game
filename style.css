@@ -62,8 +62,6 @@
   
   --craneStartPos: 1250px;
   --craneTargetPos: 0px;
-  
-  transform: translateY(-900px) translateX(var(--craneStartPos));
 }
 
 #craneContainerRot
