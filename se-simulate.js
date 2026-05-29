@@ -144,9 +144,6 @@ function applyControls() {
     pos === "left" ? 10 :
     pos === "center" ? 50 : 90;
 
-  updateDisplayPosition();
-  flash(displayContainer);
-
   // ----------------------
   // DISPLAY SCALE
   // ----------------------
@@ -156,6 +153,8 @@ function applyControls() {
     1.4;
 
   displayContainer.style.transform = `scale(${displayScale})`;
+  
+  updateDisplayPosition();
   flash(displayContainer);
 
   // ----------------------
