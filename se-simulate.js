@@ -144,6 +144,8 @@ function applyControls() {
     pos === "left" ? 10 :
     pos === "center" ? 50 : 90;
 
+  displayPositionY = 50;
+
   // ----------------------
   // DISPLAY SCALE
   // ----------------------
