@@ -173,10 +173,10 @@ function updateDisplayPosition() {
   const scaledHeight = 500 * displayScale;
 
   const newPosX =
-    (displayPositionX / 100) * (1920 - scaledWidth);
+    (displayPositionX / 100) * (1920/2 - scaledWidth);
 
   const newPosY =
-    (displayPositionY / 100) * (1080 - scaledHeight);
+    (displayPositionY / 100) * (1080/2 - scaledHeight);
 
   displayContainer.style.left = `${newPosX}px`;
   displayContainer.style.bottom = `${newPosY}px`;
