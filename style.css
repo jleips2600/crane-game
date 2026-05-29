@@ -71,7 +71,7 @@
   height: 1200px;
   width: 300px;
   bottom: 0px;
-  
+  transform: translateX(var(--craneStartPos));
   --craneStartPos: 1250px;
   --craneTargetPos: 0px;
 }
