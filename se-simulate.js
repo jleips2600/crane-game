@@ -58,21 +58,6 @@ const controlState = {
 // ======================
 // INIT WIDGET DATA
 // ======================
-let fieldData = window.SE_widgetLoadData.detail.fieldData;
-
-let displayContainer = document.getElementById("displayContainer");
-let craneContainerPos = document.getElementById("craneContainerPos");
-let craneRangeDisplay = document.getElementById("craneRangeDisplay");
-
-displayPositionX = 50;
-displayPositionY = 50;
-let displayScale = 1;
-
-let craneRange = 50;
-let craneRangeShift = 0;
-
-let craneDirection = "random";
-let randomizeCraneDirection = true;
 
 // ======================
 // START
